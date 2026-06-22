@@ -476,14 +476,10 @@ var LazyHistats=!1;window.addEventListener("scroll",function(){(0!=document.docu
   try {
     const res = await fetch("https://idlive.falou.net/match/list?ctype=1&type=1&page=1&size=20");
     const data = await res.json();
-
     if (!data?.data?.list) return;
-
     const matches = data.data.list;
-
     const schema = matches.map(match => {
       const startDate = new Date(match.match_time * 1000).toISOString();
-
       return {
         "@context": "https://schema.org",
         "@type": "SportsEvent",
